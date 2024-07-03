@@ -29,7 +29,7 @@ The classification report shows that the model performs well on the training dat
 
 All unprofitable trades were correcly predicted as explained by the 100 % precision score in the majority class with only 13% false negatives.
 
-The precision score on the minority class (buy signal) was only 49% while the recall was 100%. Such scores indicate that all actual buy signals were identified correctly in the testing set, but there were approximately twice the number of false positives also. 
+The precision score on the minority class (buy signal) was only 49% while the recall was 100%. Such scores indicate that all actual buy signals were identified correctly in the testing set, but for every correct idenfitication there was a false positive trade too. 
 
 Given the high number of false positives and the expected transaction costs of actually trading on this signal, it is possible this application does not produce a profitable trading strategy. Further analysis is required. 
 
