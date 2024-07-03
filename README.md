@@ -2,10 +2,18 @@
 
 ### Contributors: Philip Schrank, Tony Montgomery, & Rob Pavlik
 
-This application analyzes the SP-500 index, creates a buy signal target variable, and predicts the success of the buy signal based on the next day positive return. Our goal is to meet or exceed a 75% balanced accuracy score.
+## Summary
+
+This application analyzes the SP-500 index from 1927 to present day, creates a buy signal target variable, and then classifies the success of the buy signal based upon the next day's positive return. The goal was to meet or exceed a 75% balanced accuracy score. 
+
+The best balanced accuracy scores obtained exceeded 93% utilizing either XGBoost or LightBoost with undersampled data and hyperparameter tuning. It is important to note that the minority accuracy (buy signal) achieved a precision score of only 49% with a recall of 100%. Such scores indicate that all actual buy signals were identified correctly in the testing set, but there were also approximately twice the number of false positives. Given this high number of false positives and the expected transaction costs of actually trading, it is possible this application does not produce a profitable trading strategy. Further analysis is required. 
+
+## Approach
+
+The approach was a methodical 10-step approach including the progression of accuracy.
 
 1) Create an install package list.
-2) Read and load SP-500 index data into a dataframe from YahooFinance (yf) ticker function with max data period.
+2) Read and load SP-500 index using the YahooFinance (yf) ticker function with period set to max data.
 3) Clean data set by dropping unnecessary columns and null values.
 4) Perform Feature Engineering:
    - Moving Averages
@@ -16,7 +24,9 @@ This application analyzes the SP-500 index, creates a buy signal target variable
 6) Perform Train and Test Splits using SciKit Learn's TimeSeriesSplit function with a setting of 5 folds.
 7) Perform Scaling using SciKit Learn's StandardScaler.
 8) Perform data sampling using IMBlearn's RandomOverSampling and RandomUnderSampling functions.
-8) Perform and display results from various Classifications.
+9) Perform and display results from various classifications using RandomForestClassifier, XGBoost, and LightBoost. 
+10) Perform hyperparameter tuning on XGBoost and LightBoost and reclassify.
+
 
 ## Technical  Indicators
 The application utilizes the following technical momentum indicators to enable machine learning and to generate a buy signal:
@@ -26,7 +36,7 @@ The application utilizes the following technical momentum indicators to enable m
 4. Bollinger Bands, developed by John Bollinger, gauge volatility to determine if an asset is over or undervalued. The center line is the 20-day SMA while the upper and lower bands are two standard deviations above and below the mid line. The lines contract when volatility is low and expand when volatility is high.
 
 ## Buy Signal Conditions
-The goal is to buy low and sell high. This application generates a buy signal target variable of 1 when all of the following are true:
+Buy low and sell high is the goal. This application generates a buy signal target variable of 1 when all the following are true:
 1. The Relative Strength Indicator (RSI) is less than 50.
 2. The MACD is less than zero.
 3. The last closing price is less than the Bollinger mid line.
