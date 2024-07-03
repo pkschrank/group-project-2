@@ -8,9 +8,9 @@ This application analyzes the SP-500 index from 1927 to present day, creates a b
 
 The best balanced accuracy scores obtained exceeded 93% utilizing either XGBoost or LightBoost with undersampled data and hyperparameter tuning. 
 
-<img src="Resources/rus_lgb_classification_report.png" width="600" height="300">
+<img src="Resources/rus_lgb_classification_report.png" width="500" height="300">
 
-The classification report shows that the model performs well on the training data and generalizes well on unseen data. The negative variance may indicate a favorable test set or slight underfitting. 
+The classification report above shows that the model performs well on the training data and generalizes well on unseen data. The negative variance may indicate a favorable test set or slight underfitting. 
 
 All unprofitable trades were correcly predicted as explained by the 100 % precision score in the majority class with only 13% false negatives.
 
