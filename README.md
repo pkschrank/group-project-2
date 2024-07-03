@@ -6,17 +6,21 @@
 
 This application analyzes the SP-500 index from 1927 to present day, creates a buy signal target variable, and then classifies the success of the buy signal based upon the next day's positive return. The goal was to meet or exceed a 75% balanced accuracy score. 
 
-The best balanced accuracy scores obtained exceeded 93% utilizing either XGBoost or LightBoost with undersampled data and hyperparameter tuning. 
+The best balanced accuracy scores obtained exceeded 93% utilizing either XGBoost or LightBoost with undersampled data and hyperparameter tuning. LightBoost was .1% better than XGBoost in balanced accuracy.
 
 <img src="Resources/rus_lgb_classification_report.png" width="500" height="300">
 
-The classification report above shows that the model performs well on the training data and generalizes well on unseen data. The negative variance may indicate a favorable test set or slight underfitting. 
+The classification report above shows that the model performs well on the training data and generalizes well on unseen data. The negative variance may indicate a favorable test set or slight underfitting. This would need further examination.
 
 All unprofitable trades were correcly predicted as explained by the 100 % precision score in the majority class with only 13% false negatives.
 
 The precision score on the minority class (buy signal) was only 49% while the recall was 100%. Such scores indicate that all actual buy signals were identified correctly in the testing set, but for every correct idenfitication there was a false positive trade too. 
 
 Given the high number of false positives and the expected transaction costs of actually trading on this signal, it is possible this application does not produce a profitable trading strategy. Further analysis is required. 
+
+<img src="Resources/ros_rfc_classification_report.png" width="500" height="300">
+
+The classification report above was earlier in the modelling and the worst peforming combination. It is for comparison to the previous classification report.
 
 ## Approach
 
