@@ -59,4 +59,4 @@ When these conditions are false, the target variable is 0.
 
 ## Next Steps
 
-The model clearly needs to improve the precision of the minority class. This may involve additional feature engineering. Also, the negative variance should be examined as should the profitability of the model once trading costs are added.
+The model clearly needs to improve the precision of the minority class. This may involve additional feature engineering. Also, the negative variance should be examined as should the profitability of the model once transaction costs are added.
