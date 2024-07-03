@@ -6,11 +6,36 @@
 
 This application analyzes the SP-500 index from 1927 to present day, creates a buy signal target variable, and then classifies the success of the buy signal based upon the next day's positive return. The goal was to meet or exceed a 75% balanced accuracy score. 
 
-The best balanced accuracy scores obtained exceeded 93% utilizing either XGBoost or LightBoost with undersampled data and hyperparameter tuning. It is important to note that the minority accuracy (buy signal) achieved a precision score of only 49% with a recall of 100%. Such scores indicate that all actual buy signals were identified correctly in the testing set, but there were also approximately twice the number of false positives. Given this high number of false positives and the expected transaction costs of actually trading, it is possible this application does not produce a profitable trading strategy. Further analysis is required. 
+The best balanced accuracy scores obtained exceeded 93% utilizing either XGBoost or LightBoost with undersampled data and hyperparameter tuning. 
+
+Tuned LightBoost Classifer with Under Sampled Data:
+
+0.9014182075527579 training score
+0.9336058641105159 testing score
+-.032187656557758 variance
+
+--------------------------------------------------------
+Classification Report - Original Data
+              precision    recall  f1-score   support
+
+           0       1.00      0.87      0.93      3547
+           1       0.49      1.00      0.66       459
+
+    accuracy                           0.88      4006
+   macro avg       0.75      0.93      0.79      4006
+weighted avg       0.94      0.88      0.90      4006
+
+The classification report shows that the model performs well on the training data and generalizes well on unseen data. The negative variance may indicate a favorable test set or slight underfitting. 
+
+All unprofitable trades were correcly predicted as explained by the 100 % precision score in the majority class with only 13% false negatives.
+
+The precision score on the minority class (buy signal) was only 49% while the recall was 100%. Such scores indicate that all actual buy signals were identified correctly in the testing set, but there were approximately twice the number of false positives also. 
+
+Given the high number of false positives and the expected transaction costs of actually trading on this signal, it is possible this application does not produce a profitable trading strategy. Further analysis is required. 
 
 ## Approach
 
-The approach was a methodical 10-step approach including the progression of accuracy.
+The approach was a methodical 10-step approach including the tracking of accuracy progression.
 
 1) Create an install package list.
 2) Read and load SP-500 index using the YahooFinance (yf) ticker function with period set to max data.
@@ -42,3 +67,7 @@ Buy low and sell high is the goal. This application generates a buy signal targe
 3. The last closing price is less than the Bollinger mid line.
 4. For training, the the next day's percent return must be greater than zero.
 When these conditions are false, the target variable is 0.
+
+## Next Steps
+
+The model clearly needs to improve the precision of the minority class. 
