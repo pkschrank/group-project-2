@@ -55,6 +55,7 @@ Buy low and sell high is the goal. This application generates a buy signal targe
 2. The MACD is less than zero.
 3. The last closing price is less than the Bollinger mid line.
 4. For training, the the next day's percent return must be greater than zero.
+
 When these conditions are false, the target variable is 0.
 
 ## Next Steps
