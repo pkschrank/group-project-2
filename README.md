@@ -18,9 +18,9 @@ The precision score on the minority class (buy signal) was only 49% while the re
 
 Given the high number of false positives and the expected transaction costs of actually trading on this signal, it is possible this application does not produce a profitable trading strategy. Further analysis is required. 
 
-<img src="Resources/ros_rfc_classification_report.png" width="500" height="300">
+The classification report below was earlier in the modelling and was the worst peforming combination. It is for comparison to the previous classification report.
 
-The classification report above was earlier in the modelling and the worst peforming combination. It is for comparison to the previous classification report.
+<img src="Resources/ros_rfc_classification_report.png" width="500" height="300">
 
 ## Approach
 
