@@ -14,7 +14,7 @@ The classification report above shows that the model performs well on the traini
 
 All unprofitable trades were correcly predicted as explained by the 100 % precision score in the majority class with only 13% false negatives.
 
-The precision score on the minority class (buy signal) was only 49% while the recall was 100%. Such scores indicate that all actual buy signals were identified correctly in the testing set, but for every correct idenfitication there was a false positive trade too. 
+The precision score on the minority class (buy signal) was only 49% while the recall was 100%. Such scores indicate that all actual buy signals were identified correctly in the testing set, but for every correct identification there was a false positive trade too. 
 
 Given the high number of false positives and the expected transaction costs of actually trading on this signal, it is possible this application does not produce a profitable trading strategy. Further analysis is required. 
 
@@ -59,4 +59,10 @@ When these conditions are false, the target variable is 0.
 
 ## Next Steps
 
-The model clearly needs to improve the precision of the minority class. This may involve additional feature engineering. Also, the negative variance should be examined as should the profitability of the model once transaction costs are added.
+The model clearly needs to improve the precision of the minority class. This may involve additional feature engineering. Also, the negative variance should be examined as well as the profitability of the model once transaction costs are added.
+
+## Sources
+
+https://www.investopedia.com/terms/m/movingaverage.asp
+https://www.investopedia.com/terms/b/bollingerbands.asp
+https://blog.elearnmarkets.com/top-5-momentum-indicators/
