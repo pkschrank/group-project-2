@@ -64,5 +64,7 @@ The model clearly needs to improve the precision of the minority class. This may
 ## Sources
 
 https://www.investopedia.com/terms/m/movingaverage.asp
+
 https://www.investopedia.com/terms/b/bollingerbands.asp
+
 https://blog.elearnmarkets.com/top-5-momentum-indicators/
