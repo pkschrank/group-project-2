@@ -8,22 +8,7 @@ This application analyzes the SP-500 index from 1927 to present day, creates a b
 
 The best balanced accuracy scores obtained exceeded 93% utilizing either XGBoost or LightBoost with undersampled data and hyperparameter tuning. 
 
-Tuned LightBoost Classifer with Under Sampled Data:
-
-0.9014182075527579 training score
-0.9336058641105159 testing score
--.032187656557758 variance
-
---------------------------------------------------------
-Classification Report - Original Data
-              precision    recall  f1-score   support
-
-           0       1.00      0.87      0.93      3547
-           1       0.49      1.00      0.66       459
-
-    accuracy                           0.88      4006
-   macro avg       0.75      0.93      0.79      4006
-weighted avg       0.94      0.88      0.90      4006
+<img src="Resources/rus_lgb_classification_report.png" width="600" height="300">
 
 The classification report shows that the model performs well on the training data and generalizes well on unseen data. The negative variance may indicate a favorable test set or slight underfitting. 
 
@@ -54,7 +39,7 @@ The approach was a methodical 10-step approach including the tracking of accurac
 
 
 ## Technical  Indicators
-The application utilizes the following technical momentum indicators to enable machine learning and to generate a buy signal:
+The application utilizes the following technical indicators to enable machine learning and to generate a buy signal:
 1. Simple Moving Averages of 10, 20, 30, 50, 100, and 200 days. Moving averages are used to identify trends.
 2. Moving Average Convergence Divergence (MACD) shows the relationship between the two exponential moving averages (EMA) of 26-day EMA and 12-day EMA. The signal line is 9 EMA.
 3. Relative Strength Indicator which oscillates between zero and 100. Readings above 50 indicate positive and uptrend momentum while readings below 50 show negative and downtrend momentum. Readings above 70 indicate overbought conditions and readings below 30 indicate oversold conditions.
