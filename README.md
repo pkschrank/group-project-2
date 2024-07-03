@@ -37,7 +37,7 @@ The approach was a methodical 10-step approach including the tracking of accurac
 5) Perform Winsorization of data using SciKit Learn's winsorize function with upper and lower settings of .05.
 6) Perform Train and Test Splits using SciKit Learn's TimeSeriesSplit function with a setting of 5 folds.
 7) Perform Scaling using SciKit Learn's StandardScaler.
-8) Perform data sampling using IMBlearn's RandomOverSampling and RandomUnderSampling functions.
+8) Perform data sampling using imblearn's RandomOverSampling and RandomUnderSampling functions.
 9) Perform and display results from various classifications using RandomForestClassifier, XGBoost, and LightBoost. 
 10) Perform hyperparameter tuning on XGBoost and LightBoost and reclassify.
 
