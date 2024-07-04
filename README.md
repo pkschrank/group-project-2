@@ -2,6 +2,7 @@
 
 ### Contributors: Philip Schrank, Tony Montgomery, & Rob Pavlik
 
+
 ## Summary
 
 This application analyzes the SP-500 index from 1927 to present day, creates a buy signal target variable, and then classifies the success of the buy signal based upon the next day's positive return. The goal was to meet or exceed a 75% balanced accuracy score. 
@@ -18,9 +19,10 @@ The precision score on the minority class (buy signal) was only 49% while the re
 
 Given the high number of false positives and the expected transaction costs of actually trading on this signal, it is possible this application does not produce a profitable trading strategy. Further analysis is required. 
 
-The classification report below was early in the modelling and was the worst peforming combination. It is for comparison to the previous classification report and to demonstrate accuracy progression.
+The classification report below was early in the modelling and shows the worst peforming combination. It is for comparison to the previous classification report and to demonstrate accuracy progression. Multiple classifications were captured in the code throughout the modelling. 
 
 <img src="Resources/ros_rfc_classification_report.png" width="500" height="300">
+
 
 ## Approach
 
@@ -49,18 +51,26 @@ The application utilizes the following technical indicators to enable machine le
 3. Relative Strength Indicator oscillates between zero and 100. Readings above 50 indicate positive and uptrend momentum while readings below 50 show negative and downtrend momentum. Readings above 70 indicate overbought conditions and readings below 30 indicate oversold conditions.
 4. Bollinger Bands, developed by John Bollinger, gauge volatility to determine if an asset is over or undervalued. The center line is the 20-day SMA while the upper and lower bands are two standard deviations above and below the mid line. The lines contract when volatility is low and expand when volatility is high.
 
+
 ## Buy Signal Conditions
 Buy low and sell high is the goal. This application generates a buy signal target variable of 1 when all the following are true:
 1. The Relative Strength Indicator (RSI) is less than 50.
 2. The MACD is less than zero.
 3. The last closing price is less than the Bollinger mid line.
-4. For training, the the next day's percent return must be greater than zero.
+4. For training, the next day's percent return must be greater than zero.
 
 When these conditions are false, the target variable is 0.
+
 
 ## Next Steps
 
 The model clearly needs to improve the precision of the minority class. This may involve additional feature engineering. Also, the negative variance should be examined as well as the profitability of the model once transaction costs are added.
+
+
+## Plagerism Statement
+
+No specific code was copied but the sources below were referenced for examples and syntax. 
+
 
 ## Sources
 
@@ -69,3 +79,11 @@ https://www.investopedia.com/terms/m/movingaverage.asp
 https://www.investopedia.com/terms/b/bollingerbands.asp
 
 https://blog.elearnmarkets.com/top-5-momentum-indicators/
+
+https://xgboost.readthedocs.io/en/stable/parameter.html
+
+https://lightgbm.readthedocs.io/en/latest/Parameters-Tuning.html
+
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mstats.winsorize.html
+
+https://pypi.org/project/yfinance/
