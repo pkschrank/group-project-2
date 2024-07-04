@@ -1,4 +1,4 @@
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, balanced_accuracy_score
 
 def rsi(data, window=14):
     """
@@ -18,11 +18,24 @@ def rsi(data, window=14):
     return 100 - (100 / (1 + rs))
 
 
-def print_classification_report(y_test, prediction, title=""):
+def print_classification_report(y_test, prediction, title="Classification Report - Original Data"):
     """
-    Print classification reports
+    Print the formatted classification report
     """
+    
     print("--------------------------------------------------------")
-    print(f"Classification Report - Original Data")
+    print(title)
     print(classification_report(y_test, prediction))
     print("--------------------------------------------------------")
+
+def print_balanced_accuracy_report(y_train, y_test, train_pred, test_pred, title="Balanced Accuracy Scores"):
+    """
+    Print the formatted balanced accuracy report
+    """
+    print(title)
+    print("--------------------------------------------------------")
+    x = balanced_accuracy_score(y_train, train_pred)
+    y = balanced_accuracy_score(y_test, test_pred)
+    print(x,'training score')
+    print(y,'testing score')
+    print(round((x-y), 16),'variance')
